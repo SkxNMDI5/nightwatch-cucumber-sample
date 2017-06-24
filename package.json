@@ -1,0 +1,29 @@
+{
+  "name": "nightwatch-cucumber-sample",
+  "version": "1.0.0",
+  "description": "A working sample of automated tests with Nighwatch and Cucumber",
+  "scripts": {
+    "clean": "rimraf tmp reports && mkdir tmp && mkdir reports",
+    "test": "npm run clean && npm run test:localchrome",
+    "test:chrome": "npm run clean && (nightwatch --env chrome && npm run reports) || npm run reports",
+    "test:firefox": "npm run clean && (nightwatch --env firefox && npm run reports) || npm run reports",
+    "test:localchrome": "npm run clean && (nightwatch --env localchrome && npm run reports) || npm run reports",
+    "test:localfirefox": "npm run clean && (nightwatch --env localfirefox && npm run reports) || npm run reports",
+    "test:ci": "npm run clean && nightwatch --env chrome || (RETURN_CODE=$? && npm reports  && exit $RETURN_CODE)",
+    "reports": "npm run reports:junit && node cucumber-report.js && node generate-doc-cucumber.js",
+    "reports:junit": "cat reports/cucumber.json | cucumber-junit > reports/cucumber.junit.xml"
+  },
+  "author": "jlamande.cap@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^2.30.1",
+    "cucumber": "^2.3.1",
+    "cucumber-html-reporter": "^2.0.0",
+    "cucumber-junit": "^1.7.0",
+    "debug": "^2.6.8",
+    "geckodriver": "^1.7.1",
+    "nightwatch": "^0.9.16",
+    "nightwatch-cucumber": "^7.1.9",
+    "selenium-server": "^3.4.0"
+  }
+}
