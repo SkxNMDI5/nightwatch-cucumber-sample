@@ -41,7 +41,7 @@ aws.out
 *.log
 reports/
 tmp/
-doc/cucumber/index.html
+doc/index.html
 
 # misc
 .DS_Store
