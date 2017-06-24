@@ -192,7 +192,7 @@ It supposes that you created a MYENV.js file.
 
 Sample :
 
-```json
+```js
 'use strict';
 
 const config = {
