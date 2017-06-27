@@ -6,7 +6,7 @@ let config = {};
 if(typeof process.env.ENV !== 'undefined') {
   config = require('../env/' + process.env.ENV + '.js');
 } else {
-  config = require('./env/localhost.js');
+  config = require('../env/localhost.js');
   // search for local ip address (local dev server tests on port 80)
   const os = require('os');
   const interfaces = os.networkInterfaces();
